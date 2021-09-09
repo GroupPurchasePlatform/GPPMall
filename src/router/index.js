@@ -5,21 +5,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/login/login.vue')
-  },
-  {
     path: '/',
     component: () => import('../views/layout/layoutTabBar.vue'),
     children: [
       {
         path: '',
-        name: 'home',
-        component: () => import('@/views/home/home.vue')
-      },
-      {
-        path: '/home',
         name: 'home',
         component: () => import('@/views/home/home.vue')
       },
@@ -30,7 +20,7 @@ const routes = [
       },
       {
         path: '/commodity',
-        name: 'homcommoditye',
+        name: 'commodity',
         component: () => import('@/views/commodity/commodity.vue')
       },
       {
