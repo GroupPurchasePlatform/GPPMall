@@ -73,7 +73,6 @@ export default {
   font-size: 25px;
   color: #666666;
   text-align: center;
-  padding-top: 850px;
 }
 </style>
 

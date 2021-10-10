@@ -3,7 +3,7 @@
     <div class="header login" v-if="userInfo"></div>
     <div class="header not-login" v-else>
       <div class="login-btn" @click="$router.push('/login')">
-        <img src="@/assets/earth.png" class="mobile-image">
+        <!-- <img src="@/assets/earth.png" class="mobile-image"> -->
         <span class="text">登录 / 注册</span>
       </div>
     </div>
