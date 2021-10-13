@@ -1,5 +1,5 @@
 <template>
-  <div class="good-item">
+  <div class="good-item" @click="goodDetail">
     <img :src="goodItem.show.img" alt="" />
     <div class="good-info">
       <p>{{ goodItem.title }}</p>
@@ -18,6 +18,11 @@ export default {
         return {}
       }
     }
+  },
+  methods: {
+    goodDetail() {
+      this.$router.push('/detail')
+    }
   }
 }
 </script>
@@ -27,7 +32,7 @@ export default {
   padding-bottom: 40px;
   position: relative;
 
-width: 48%;
+  width: 48%;
 }
 
 .good-item img {
@@ -68,6 +73,6 @@ width: 48%;
   top: -1px;
   width: 14px;
   height: 14px;
-  background: url('../../../assets/images/common/collect.svg') 0 0/14px 14px;
+  /* background: url('../../../assets/images/common/collect.svg') 0 0/14px 14px; */
 }
 </style>

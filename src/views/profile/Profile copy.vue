@@ -1,70 +1,6 @@
-// <template>
-//   <div class="profile-container">
-//     <div class="header login" v-if="userInfo"></div>
-//     <div class="header not-login" v-else>
-//       <div class="login-btn" @click="$router.push('/login')">
-//         <!-- <img src="@/assets/earth.png" class="mobile-image"> -->
-//         <span class="text">登录 / 注册</span>
-//       </div>
-//     </div>
-//   </div>
-// </template>
-
-// <script>
-// export default {
-//   data() {
-//     return {
-//       userInfo: {}
-//     }
-//   },
-//   methods: {
-//     onSubmit(values) {
-//       console.log('submit', values);
-//     },
-//   },
-//   computed: {
-//     title() {
-//       if (this.userInfo) {
-//         return '我的'
-//       } else {
-//         return '未登录'
-//       }
-//     }
-//   }
-// }
-// </script>
-
-// <style scoped lang="less">
-// .profile-container {
-//   .header {
-//     height: 361px;
-//     background-size: cover;
-//   }
-//   .not-login {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     .login-btn {
-//       display: flex;
-//       flex-direction: column;
-//       justify-content: center;
-//       align-items: center;
-//       .mobile-image {
-//         width: 221px;
-//         height: 151px;
-//         margin-bottom: 15px;
-//       }
-//       .text {
-//         font-size: 28px;
-//         color: #000;
-//       }
-//     }
-//   }
-// }
-// </style>
 <template>
   <div id="profile">
-    <!-- <nav-bar class="nav-bar"><div slot="center">小码哥商城</div></nav-bar> -->
+    <nav-bar class="nav-bar"><div slot="center">小码哥商城</div></nav-bar>
     <!--1.单独封装一个组件: 利用slot知识点-->
     <UserInfo></UserInfo>
 
@@ -99,19 +35,19 @@
 <script>
   import UserInfo from './childComps/UserInfo'
   import ListView from './childComps/ListView'
-  // import NavBar from 'common/navbar/NavBar'
+  import NavBar from 'common/navbar/NavBar'
 
 	export default {
 		name: "Profile",
     components: {
-		  UserInfo, ListView// , NavBar
+		  UserInfo, ListView, NavBar
     },
-    data() {
+    data: function () {
 		  return {
 		    orderList: [
-          // {icon: '#order', iconColor: '#ff8198', info: '我的消息'},
-          // {icon: '#point', iconColor: '#fc7b53', info: '积分商城'},
-          // {icon: '#vip', iconColor: '#ffc636', info: '会员卡'},
+          {icon: '#order', iconColor: '#ff8198', info: '我的消息'},
+          {icon: '#point', iconColor: '#fc7b53', info: '积分商城'},
+          {icon: '#vip', iconColor: '#ffc636', info: '会员卡'},
         ],
         serviceList: [
           {icon: '#service', iconColor: '#ff8198', info: '我的购物车'},
@@ -171,4 +107,3 @@
   }
 
 </style>
-

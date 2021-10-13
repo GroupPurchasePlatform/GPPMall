@@ -13,15 +13,18 @@
       <van-swipe-item>4</van-swipe-item>
     </van-swipe>
     <van-grid clickable :column-num="2" class="home-grid">
-      <van-grid-item icon="apps-o" text="分类" to="/" />
-      <van-grid-item icon="point-gift-o" text="活动" url="/vant/mobile.html" />
+      <van-grid-item icon="apps-o" text="分类" to="/commodity" />
+      <van-grid-item icon="point-gift-o" text="活动" to="/activity" />
     </van-grid>
     <!-- TODO: 商品展示 -->
+    <!-- <good-item :goodItem="{price: 12}" /> -->
   </div>
 </template>
 
 <script>
 import NavBar from '../../components/common/NavBar/NavBar.vue'
+
+import GoodItem from '../../components/content/Goods/GoodItem.vue'
 
 export default {
   data: {
@@ -35,7 +38,8 @@ export default {
 
   },
   components: {
-    NavBar
+    NavBar,
+    GoodItem
   }
 }
 </script>
