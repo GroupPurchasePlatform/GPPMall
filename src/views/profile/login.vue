@@ -1,7 +1,12 @@
 <template>
   <div>
     <van-nav-bar class="page-nav-bar" title="登录">
-      <van-icon name="arrow-left" slot="left" color="#fff" @click="$router.back()" />
+      <van-icon
+        name="arrow-left"
+        slot="left"
+        color="#fff"
+        @click="$router.back()"
+      />
     </van-nav-bar>
     <van-form @submit="onSubmit">
       <van-field
@@ -22,11 +27,15 @@
         :rules="[{ required: true, message: '请填写密码' }]"
       />
       <div style="margin: 16px">
-        <van-button round block type="info" native-type="submit">点击登录</van-button>
+        <van-button round block type="info" native-type="submit">
+          点击登录
+        </van-button>
       </div>
     </van-form>
     <div style="margin: 16px">
-      <van-button round block type="info" native-type="submit" to="/register">注册</van-button>
+      <van-button round block type="info" native-type="submit" to="/register">
+        注册
+      </van-button>
     </div>
     <div class="privacy">隐私条款</div>
   </div>
@@ -52,7 +61,7 @@ export default {
       // 2. 表单验证
       // 在组件中需要通过 this.$toast 进行调用
       this.$toast.loading({
-        message: "登录中...",
+        message: '登录中...',
         forbidClick: true, // 禁用背景点击
         duration: 0 // 展示持续事件，默认 2s，如果为 0 则持续展示
       })
@@ -62,6 +71,7 @@ export default {
         this.$toast.fail('用户名或者密码错误')
       } else {
         this.$store.commit('setUser', data.token)
+        this.$store.commit('setUsername', this.user.username)
         this.$toast.success('登录成功')
         // 登录成功跳转到我的页面
         this.$router.back()

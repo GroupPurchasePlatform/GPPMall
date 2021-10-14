@@ -1,10 +1,10 @@
 <template>
   <div class="good-item" @click="goodDetail">
-    <img :src="goodItem.show.img" alt="" />
+    <img :src="goodItem.product_surfacePlot" alt="" />
     <div class="good-info">
-      <p>{{ goodItem.title }}</p>
-      <span class="price">{{ goodItem.price }}</span>
-      <span class="collect">{{ goodItem.cfav }}</span>
+      <p>{{ goodItem.product_name }}</p>
+      <span class="price">{{ goodItem.product_price }}</span>
+      <span class="collect">{{ goodItem.product_sales }}</span>
     </div>
   </div>
 </template>

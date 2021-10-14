@@ -1,14 +1,14 @@
+// vue.config.js
 module.exports = {
-  productionSourceMap: false,
-  configureWebpack: (config) => {
-    if (process.env.NODE_ENV === 'production') {
-      // return {
-      // plugins: [
-      // new BundleAnalyzerPlugin()
-      // ]
-      // }
-    } else if (process.env.NODE_ENV === 'development') {
-    } else {
+  css: {
+    loaderOptions: {
+      less: {
+        modifyVars: {
+          // 直接覆盖变量
+          'empty-description-color': '#fff',
+          'nav-bar-background-color': '#3296fa'
+        }
+      }
     }
   }
 }

@@ -9,6 +9,7 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 // 全局CSS
 import './styles/index.less'
+import 'vant/lib/index.less'
 
 Vue.config.productionTip = false
 Vue.use(Vant)

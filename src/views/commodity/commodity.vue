@@ -21,7 +21,6 @@
 
 <script>
 import CommodityBlock from '../../components/content/CommodityView/CommodityBlock.vue'
-
 import { commodity } from '../../api/commodity'
 
 export default {

@@ -5,41 +5,49 @@
         <div class="text">输入关键词以搜索相关商品</div>
       </div>
     </nav-bar>
-    <!-- TODO: 轮播图实现 -->
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item>1</van-swipe-item>
-      <van-swipe-item>2</van-swipe-item>
-      <van-swipe-item>3</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
+      <van-swipe-item v-for="(item, index) in images" :key="index">
+        <img v-lazy="item.product_surfacePlot" />
+      </van-swipe-item>
     </van-swipe>
     <van-grid clickable :column-num="2" class="home-grid">
       <van-grid-item icon="apps-o" text="分类" to="/commodity" />
       <van-grid-item icon="point-gift-o" text="活动" to="/activity" />
     </van-grid>
-    <!-- TODO: 商品展示 -->
-    <!-- <good-item :goodItem="{price: 12}" /> -->
+    <good-list :goods="goods" />
+    <div class="block"></div>
   </div>
 </template>
 
 <script>
-import NavBar from '../../components/common/NavBar/NavBar.vue'
+import Vue from 'vue'
+import { Lazyload } from 'vant'
+Vue.use(Lazyload)
 
-import GoodItem from '../../components/content/Goods/GoodItem.vue'
+import NavBar from '../../components/common/NavBar/NavBar.vue'
+import GoodList from '../../components/content/Goods/GoodsList.vue'
+import { getSlideShow, getProducts } from '../../api/products'
 
 export default {
-  data: {
-    images: null,
-    goods: {
-      page: 0,
-      list: []
+  data() {
+    return {
+      images: [],
+      goods: []
     }
   },
   created() {
-
+    // 获取轮播图数据
+    getSlideShow().then(res => {
+      this.images = res.data
+    })
+    // 获取商品数据
+    getProducts().then(res => {
+      this.goods = res.data
+    })
   },
   components: {
     NavBar,
-    GoodItem
+    GoodList
   }
 }
 </script>
@@ -80,10 +88,17 @@ export default {
   font-size: 20px;
   line-height: 150px;
   text-align: center;
-  background-color: #39a9ed;
+}
+
+.my-swipe img {
+  height: 100%;
 }
 
 .home-grid {
   margin-top: 15px;
+}
+
+.block {
+  margin-top: 120px;
 }
 </style>
